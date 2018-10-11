@@ -4,6 +4,7 @@
 __author__ = 'King'
 
 import xlwt
+import urllib
 
 class HtmlOutputer(object):
     def __init__(self):
@@ -52,9 +53,10 @@ class HtmlOutputer(object):
         for data in self.datas:
             sheet1.write(i, 0, i)
             sheet1.write(i, 1, data['title'])
-            #sheet1.write(i, 2, data['summary'])
-            urllib.request.urlretrieve(data['summary'],"C:\\spider2\\%s.jpg"%(i))
-			sheet1.write(i, 3, data['url'])
+            sheet1.write(i, 2, data['summary'])
+            #urllib.request.urlretrieve(data['summary'],"C:\\spider2\\pic\\%s.jpg"%(data['title']))
+            #print('successfully download pic %s ' % (data['title']))
+            sheet1.write(i, 3, data['url'])
             i += 1
 
         book.save('Python_Baike_Data.xls')

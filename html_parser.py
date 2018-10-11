@@ -40,9 +40,8 @@ class HtmlParser(object):
 
         res_data['title'] = title_node.get_text()
 
-        summary_node = soup.find('div', class_='summary-pic')
-		
-        res_data['summary'] = summary_node.a.img['src']
+        summary_node = soup.find('div', class_='lemma-summary')
+        res_data['summary'] = summary_node.get_text()
 
         # 三个属性：url、title、summary
         return res_data

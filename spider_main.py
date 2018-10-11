@@ -1,6 +1,7 @@
 import html_downloader, html_outputer, html_parser, url_manager
 import urllib.parse
 import xlrd
+import urllib
 
 data = xlrd.open_workbook('example.xlsx')
 table = data.sheets()[0]
@@ -51,7 +52,7 @@ class SpiderMain(object):
                 # 收集爬取数据
 				self.outputer.collect_data(new_data)
 				i +=1
-				print('successfully carw %s' %(wordlist[i][0]))
+				print('successfully craw %s' %(wordlist[i][0]))
 			except :
 				print('craw failed')
 				i+=1
